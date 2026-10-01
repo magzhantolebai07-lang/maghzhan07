@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FreelanceHub</title>
+
+
+    <style>
+
+        /* =====================================================
+                           НЕГІЗГІ БАПТАУЛАР
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6fb;
+            color: #222;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+                              HEADER
+        ===================================================== */
+
+        header {
+
+            background: #15182a;
+
+            color: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+
+        .logo {
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+            color: #6c63ff;
+
+            cursor: pointer;
+
+        }
+
+
+        nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        nav a:hover {
+
+            color: #8179ff;
+
+        }
+
+
+        /* =====================================================
+                               БЕТТЕР
+        ===================================================== */
+
+        .page {
+
+            display: none;
+
+        }
+
+
+        .page.active {
+
+            display: block;
+
+        }
+
+
+        /* =====================================================
+                               HERO
+        ===================================================== */
+
+        .hero {
+
+            min-height: 600px;
+
+            padding: 80px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #15182a,
+                    #40377d
+                );
+
+            color: white;
+
+        }
+
+
+        .hero-text {
+
+            max-width: 600px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 50px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: #8179ff;
+
+        }
+
+
+        .hero p {
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            color: #ddd;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .hero-image img {
+
+            width: 450px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.3);
+
+        }
+
+
+        /* =====================================================
+                               BUTTON
+        ===================================================== */
+
+        .btn {
+
+            padding: 13px 23px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-2px);
+
+            opacity: 0.9;
+
+        }
+
+
+        .primary {
+
+            background: #6c63ff;
+
+            color: white;
+
+        }
+
+
+        .secondary {
+
+            background: white;
+
+            color: #222;
+
+        }
+
+
+        .danger {
+
+            background: #ff5252;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+                              CONTAINER
+        ===================================================== */
+
+        .container {
+
+            width: 86%;
+
+            margin: auto;
+
+            padding: 60px 0;
+
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            font-size: 34px;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        /* =====================================================
+                               CARDS
+        ===================================================== */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.07);
+
+            transition: 0.3s;
+
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+        }
+
+
+        .card img {
+
+            width: 100%;
+
+            height: 210px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .card h3 {
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .card p {
+
+            color: #666;
+
+            line-height: 1.6;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .price {
+
+            color: #6c63ff;
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            margin: 15px 0;
+
+        }
+
+
+        /* =====================================================
+                               SEARCH
+        ===================================================== */
+
+        .search {
+
+            max-width: 700px;
+
+            margin: 0 auto 40px;
+
+            display: flex;
+
+        }
+
+
+        .search input {
+
+            flex: 1;
+
+            padding: 15px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px 0 0 8px;
+
+            font-size: 16px;
+
+            outline: none;
+
+        }
+
+
+        .search button {
+
+            padding: 15px 25px;
+
+            border: none;
+
+            background: #6c63ff;
+
+            color: white;
+
+            border-radius: 0 8px 8px 0;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =====================================================
+                               FORM
+        ===================================================== */
+
+        .form-container {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.08);
+
+        }
+
+
+        .form-title {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #6c63ff;
+
+        }
+
+
+        textarea {
+
+            min-height: 140px;
+
+            resize: vertical;
+
+        }
+
+
+        .required {
+
+            color: red;
+
+        }
+
+
+        /* =====================================================
+                         APPLICATION INFORMATION
+        ===================================================== */
+
+        .application-box {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.08);
+
+        }
+
+
+        .application-info {
+
+            background: #f1efff;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .application-info h3 {
+
+            color: #554ce2;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =====================================================
+                              PROFILE
+        ===================================================== */
+
+        .profile {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 40px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.08);
+
+        }
+
+
+        .profile img {
+
+            width: 160px;
+
+            height: 160px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            margin-bottom: 20px;
+
+            border: 5px solid #eee;
+
+        }
+
+
+        .profile h2 {
+
+            margin-bottom: 10px;
+
+            font-size: 30px;
+
+        }
+
+
+        .profile-description {
+
+            color: #666;
+
+            line-height: 1.7;
+
+            margin: 20px 0;
+
+        }
+
+
+        .skills {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin: 20px 0;
+
+        }
+
+
+        .skill {
+
+            background: #eceaff;
+
+            color: #554ce2;
+
+            padding: 9px 16px;
+
+            border-radius: 20px;
+
+        }
+
+
+        .profile-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin: 25px 0;
+
+        }
+
+
+        .info-item {
+
+            background: #f7f7fb;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+        }
+
+
+        .info-item strong {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #555;
+
+        }
+
+
+        /* =====================================================
+                             SUCCESS
+        ===================================================== */
+
+        .success {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 50px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.08);
+
+        }
+
+
+        .success-icon {
+
+            font-size: 70px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .success h1 {
+
+            color: #35a66a;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .result-box {
+
+            text-align: left;
+
+            background: #f4f4ff;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            line-height: 2;
+
+            margin: 25px 0;
+
+        }
+
+
+        /* =====================================================
+                             FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #15182a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px;
+
+            margin-top: 50px;
+
+        }
+
+
+        footer p {
+
+            color: #aaa;
+
+            margin-top: 10px;
+
+        }
+
+
+        /* =====================================================
+                             MOBILE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .hero {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 38px;
+
+            }
+
+
+            .hero-image img {
+
+                width: 100%;
+
+            }
+
+
+            .cards {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+
+            }
+
+
+            .cards {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .container {
+
+                width: 92%;
+
+            }
+
+
+            .form-container,
+            .application-box {
+
+                padding: 25px;
+
+            }
+
+
+            .profile {
+
+                padding: 25px;
+
+            }
+
+
+            .profile-info {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<!-- =====================================================
+                              HEADER
+===================================================== -->
+
+<header>
+
+
+    <div
+        class="logo"
+        onclick="showPage('home')"
+    >
+
+        FreelanceHub
+
+    </div>
+
+
+    <nav>
+
+        <a onclick="showPage('home')">
+            Басты бет
+        </a>
+
+        <a onclick="showPage('freelancers')">
+            Фрилансерлер
+        </a>
+
+        <a onclick="showPage('projects')">
+            Тапсырыстар
+        </a>
+
+        <a onclick="showPage('profile')">
+            Профиль
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+
+<!-- =====================================================
+                            HOME
+===================================================== -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+
+    <div class="hero">
+
+
+        <div class="hero-text">
+
+
+            <h1>
+
+                Фриланс
+
+                <span>
+                    жұмысыңды тап
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                FreelanceHub — фрилансерлер мен
+                тапсырыс берушілерді байланыстыратын
+                заманауи платформа.
+
+            </p>
+
+
+            <button
+                class="btn primary"
+                onclick="showPage('projects')"
+            >
+
+                Жұмыс іздеу
+
+            </button>
+
+
+            <button
+                class="btn secondary"
+                onclick="showPage('freelancers')"
+            >
+
+                Фрилансерлер
+
+            </button>
+
+
+        </div>
+
+
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80"
+                alt="Freelancers"
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="container">
+
+
+        <h2 class="section-title">
+
+            Платформа мүмкіндіктері
+
+        </h2>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    👨‍💻 Фрилансерлер
+                </h3>
+
+                <p>
+
+                    Барлық фрилансерлерді қарап,
+                    олардың жеке профиліне кіріп,
+                    тәжірибесі мен дағдыларын көріңіз.
+
+                </p>
+
+                <button
+                    class="btn primary"
+                    onclick="showPage('freelancers')"
+                >
+
+                    Фрилансерлерді көру
+
+                </button>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <h3>
+                    📋 Тапсырыстар
+                </h3>
+
+                <p>
+
+                    Қолжетімді жобаларды қарап,
+                    өзіңізге ұнайтын жұмысқа
+                    өтінім беріңіз.
+
+                </p>
+
+                <button
+                    class="btn primary"
+                    onclick="showPage('projects')"
+                >
+
+                    Тапсырыстарды көру
+
+                </button>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <h3>
+                    📝 Өтінім беру
+                </h3>
+
+                <p>
+
+                    Өзіңіздің деректеріңізді толтырып,
+                    таңдалған жобаға толық өтінім
+                    жіберіңіз.
+
+                </p>
+
+                <button
+                    class="btn primary"
+                    onclick="showPage('projects')"
+                >
+
+                    Жоба таңдау
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                        FREELANCERS
+===================================================== -->
+
+<section
+    id="freelancers"
+    class="page"
+>
+
+
+    <div class="container">
+
+
+        <h1 class="section-title">
+
+            👨‍💻 Барлық фрилансерлер
+
+        </h1>
+
+
+        <div class="search">
+
+            <input
+                type="text"
+                id="freelancerSearch"
+                placeholder="Аты немесе мамандығы бойынша іздеу..."
+                onkeyup="searchFreelancer()"
+            >
+
+            <button>
+                🔍
+            </button>
+
+        </div>
+
+
+        <div
+            class="cards"
+            id="freelancerList"
+        >
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                         PROJECTS
+===================================================== -->
+
+<section
+    id="projects"
+    class="page"
+>
+
+
+    <div class="container">
+
+
+        <h1 class="section-title">
+
+            📋 Қолжетімді жобалар
+
+        </h1>
+
+
+        <div class="cards">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="card">
+
+                <h3>
+                    🌐 Веб-сайт жасау
+                </h3>
+
+                <p>
+
+                    Компанияға заманауи,
+                    адаптивті веб-сайт жасау қажет.
+
+                </p>
+
+                <p>
+
+                    <b>
+                        Технология:
+                    </b>
+
+                    HTML, CSS, JavaScript
+
+                </p>
+
+                <div class="price">
+                    💰 150 000 ₸
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="
+                    openApplication(
+                        'Веб-сайт жасау',
+                        '150 000 ₸'
+                    )
+                    "
+                >
+
+                    Өтінім беру
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="card">
+
+                <h3>
+                    📱 Мобильді қосымша
+                </h3>
+
+                <p>
+
+                    Android және iOS үшін
+                    мобильді қосымша жасау қажет.
+
+                </p>
+
+                <p>
+
+                    <b>
+                        Технология:
+                    </b>
+
+                    Flutter
+
+                </p>
+
+                <div class="price">
+                    💰 300 000 ₸
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="
+                    openApplication(
+                        'Мобильді қосымша',
+                        '300 000 ₸'
+                    )
+                    "
+                >
+
+                    Өтінім беру
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="card">
+
+                <h3>
+                    🎨 Логотип жасау
+                </h3>
+
+                <p>
+
+                    Компанияға заманауи
+                    минималистік логотип жасау.
+
+                </p>
+
+                <p>
+
+                    <b>
+                        Бағыт:
+                    </b>
+
+                    Graphic Design
+
+                </p>
+
+                <div class="price">
+                    💰 50 000 ₸
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="
+                    openApplication(
+                        'Логотип жасау',
+                        '50 000 ₸'
+                    )
+                    "
+                >
+
+                    Өтінім беру
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="card">
+
+                <h3>
+                    ✍️ Мақала жазу
+                </h3>
+
+                <p>
+
+                    IT тақырыбында бірнеше
+                    мақала жазу қажет.
+
+                </p>
+
+                <p>
+
+                    <b>
+                        Көлемі:
+                    </b>
+
+                    1000–1500 сөз
+
+                </p>
+
+                <div class="price">
+                    💰 40 000 ₸
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="
+                    openApplication(
+                        'Мақала жазу',
+                        '40 000 ₸'
+                    )
+                    "
+                >
+
+                    Өтінім беру
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="card">
+
+                <h3>
+                    📢 SMM маманы
+                </h3>
+
+                <p>
+
+                    Instagram және TikTok
+                    парақшаларын жүргізу.
+
+                </p>
+
+                <p>
+
+                    <b>
+                        Жұмыс:
+                    </b>
+
+                    Контент + жарнама
+
+                </p>
+
+                <div class="price">
+                    💰 120 000 ₸
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="
+                    openApplication(
+                        'SMM маманы',
+                        '120 000 ₸'
+                    )
+                    "
+                >
+
+                    Өтінім беру
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJECT 6 -->
+
+            <div class="card">
+
+                <h3>
+                    🎬 Видео монтаж
+                </h3>
+
+                <p>
+
+                    YouTube және әлеуметтік
+                    желілерге арналған видео монтаж.
+
+                </p>
+
+                <p>
+
+                    <b>
+                        Бағыт:
+                    </b>
+
+                    Video Editing
+
+                </p>
+
+                <div class="price">
+                    💰 80 000 ₸
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="
+                    openApplication(
+                        'Видео монтаж',
+                        '80 000 ₸'
+                    )
+                    "
+                >
+
+                    Өтінім беру
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                       APPLICATION
+===================================================== -->
+
+<section
+    id="application"
+    class="page"
+>
+
+
+    <div class="container">
+
+
+        <div class="application-box">
+
+
+            <h1 class="form-title">
+
+                📝 Жобаға өтінім беру
+
+            </h1>
+
+
+            <div class="application-info">
+
+                <h3>
+                    Таңдалған жоба
+                </h3>
+
+                <p>
+
+                    <b id="selectedProject">
+                        -
+                    </b>
+
+                </p>
+
+                <p>
+
+                    Бюджет:
+
+                    <b id="selectedPrice">
+                        -
+                    </b>
+
+                </p>
+
+            </div>
+
+
+
+            <form
+                id="applicationForm"
+                onsubmit="submitApplication(event)"
+            >
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Аты-жөніңіз
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Алихан Сәрсен"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Email
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@gmail.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Телефон
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+7 700 123 45 67"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PROFESSION -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Мамандығыңыз
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <select
+                        id="profession"
+                        required
+                    >
+
+                        <option value="">
+                            Маманды таңдаңыз
+                        </option>
+
+                        <option>
+                            Web Developer
+                        </option>
+
+                        <option>
+                            Mobile Developer
+                        </option>
+
+                        <option>
+                            UI/UX Designer
+                        </option>
+
+                        <option>
+                            Graphic Designer
+                        </option>
+
+                        <option>
+                            Copywriter
+                        </option>
+
+                        <option>
+                            SMM Manager
+                        </option>
+
+                        <option>
+                            SEO Specialist
+                        </option>
+
+                        <option>
+                            Video Editor
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- EXPERIENCE -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Жұмыс тәжірибесі
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <select
+                        id="experience"
+                        required
+                    >
+
+                        <option value="">
+                            Тәжірибені таңдаңыз
+                        </option>
+
+                        <option>
+                            Тәжірибем жоқ
+                        </option>
+
+                        <option>
+                            1 жылдан аз
+                        </option>
+
+                        <option>
+                            1–2 жыл
+                        </option>
+
+                        <option>
+                            3–5 жыл
+                        </option>
+
+                        <option>
+                            5 жылдан жоғары
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- PORTFOLIO -->
+
+                <div class="form-group">
+
+                    <label>
+                        Портфолио
+                    </label>
+
+                    <input
+                        type="url"
+                        id="portfolio"
+                        placeholder="https://github.com/username"
+                    >
+
+                </div>
+
+
+
+                <!-- OFFER PRICE -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Сіздің ұсыныс бағаңыз
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="offerPrice"
+                        placeholder="120000"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- ABOUT -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Өзіңіз туралы
+                        <span class="required">*</span>
+
+                    </label>
+
+                    <textarea
+                        id="about"
+                        placeholder="Өзіңіз туралы, тәжірибеңіз және жобаны қалай орындайтыныңыз туралы жазыңыз..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="btn primary"
+                    style="width:100%;"
+                >
+
+                    🚀 Өтінімді жіберу
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                          PROFILE
+===================================================== -->
+
+<section
+    id="profile"
+    class="page"
+>
+
+
+    <div class="container">
+
+
+        <button
+            class="btn primary"
+            onclick="showPage('freelancers')"
+        >
+
+            ← Барлық фрилансерлер
+
+        </button>
+
+
+        <br><br>
+
+
+        <div class="profile">
+
+
+            <img
+                id="profilePhoto"
+                src=""
+                alt="Фрилансер"
+            >
+
+
+            <h2 id="profileName">
+                Фрилансер
+            </h2>
+
+
+            <p id="profileProfession">
+                -
+            </p>
+
+
+            <p id="profileLocation">
+                -
+            </p>
+
+
+            <p id="profileRating">
+                -
+            </p>
+
+
+
+            <div class="profile-info">
+
+
+                <div class="info-item">
+
+                    <strong>
+                        💼 Тәжірибе
+                    </strong>
+
+                    <span id="profileExperience">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <strong>
+                        💰 Бағасы
+                    </strong>
+
+                    <span id="profilePrice">
+                        -
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <h3>
+                Өзім туралы
+            </h3>
+
+
+            <p
+                class="profile-description"
+                id="profileAbout"
+            >
+                -
+            </p>
+
+
+
+            <h3>
+                🛠️ Дағдылар
+            </h3>
+
+
+            <div
+                class="skills"
+                id="profileSkills"
+            >
+            </div>
+
+
+
+            <h3>
+                🔗 Портфолио
+            </h3>
+
+
+            <br>
+
+
+            <a
+                id="profilePortfolio"
+                href="#"
+                target="_blank"
+                class="btn primary"
+            >
+
+                Портфолионы көру
+
+            </a>
+
+
+            <br><br>
+
+
+            <button
+                class="btn secondary"
+                onclick="showPage('projects')"
+            >
+
+                📋 Жобаларды көру
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                          SUCCESS
+===================================================== -->
+
+<section
+    id="success"
+    class="page"
+>
+
+
+    <div class="container">
+
+
+        <div class="success">
+
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+
+            <h1>
+                Өтінім жіберілді!
+            </h1>
+
+
+            <p>
+
+                Сіздің өтініміңіз сәтті қабылданды.
+
+            </p>
+
+
+            <div
+                class="result-box"
+                id="applicationResult"
+            >
+            </div>
+
+
+            <button
+                class="btn primary"
+                onclick="showPage('projects')"
+            >
+
+                Басқа жобаларды көру
+
+            </button>
+
+
+            <button
+                class="btn secondary"
+                onclick="showPage('home')"
+            >
+
+                Басты бетке
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+                          FOOTER
+===================================================== -->
+
+<footer>
+
+    <h3>
+        FreelanceHub
+    </h3>
+
+    <p>
+        Фрилансерлер мен тапсырыс берушілерге арналған платформа
+    </p>
+
+    <p>
+        © 2026 FreelanceHub
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+                         JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+                   ФРИЛАНСЕРЛЕР БАЗАСЫ
+===================================================== */
+
+const freelancers = [
+
+    {
+        name: "Алихан Сәрсен",
+
+        photo:
+        "https://randomuser.me/api/portraits/men/32.jpg",
+
+        profession:
+        "Full Stack Web Developer",
+
+        location:
+        "Алматы, Қазақстан",
+
+        rating:
+        "⭐ 4.9 / 5.0",
+
+        about:
+        "Мен заманауи веб-сайттар мен веб-қосымшалар жасайтын Full Stack Developerмін. Клиенттердің талаптарына сай сапалы, жылдам және ыңғайлы сайттар жасауға маманданғанмын.",
+
+        skills: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js"
+        ],
+
+        experience:
+        "4 жыл",
+
+        price:
+        "$25 / сағ",
+
+        portfolio:
+        "https://github.com/"
+
+    },
+
+
+    {
+        name: "Айдана Нұрлан",
+
+        photo:
+        "https://randomuser.me/api/portraits/women/44.jpg",
+
+        profession:
+        "UI/UX Designer",
+
+        location:
+        "Астана, Қазақстан",
+
+        rating:
+        "⭐ 5.0 / 5.0",
+
+        about:
+        "Қолданушыларға ыңғайлы және заманауи интерфейстер жасаймын. Мобильді қосымшалар мен веб-сайттардың дизайнын әзірлеуде тәжірибем бар.",
+
+        skills: [
+            "Figma",
+            "Photoshop",
+            "UI Design",
+            "UX Design",
+            "Illustrator"
+        ],
+
+        experience:
+        "3 жыл",
+
+        price:
+        "$20 / сағ",
+
+        portfolio:
+        "https://www.behance.net/"
+
+    },
+
+
+    {
+        name: "Данияр Бек",
+
+        photo:
+        "https://randomuser.me/api/portraits/men/75.jpg",
+
+        profession:
+        "Mobile Developer",
+
+        location:
+        "Шымкент, Қазақстан",
+
+        rating:
+        "⭐ 4.8 / 5.0",
+
+        about:
+        "Android және iOS платформаларына арналған мобильді қосымшалар әзірлеймін. Flutter және Kotlin технологияларымен жұмыс істеймін.",
+
+        skills: [
+            "Flutter",
+            "Dart",
+            "Kotlin",
+            "Android",
+            "Firebase"
+        ],
+
+        experience:
+        "3 жыл",
+
+        price:
+        "$30 / сағ",
+
+        portfolio:
+        "https://github.com/"
+
+    },
+
+
+    {
+        name: "Мадина Ермек",
+
+        photo:
+        "https://randomuser.me/api/portraits/women/65.jpg",
+
+        profession:
+        "Copywriter",
+
+        location:
+        "Алматы, Қазақстан",
+
+        rating:
+        "⭐ 4.9 / 5.0",
+
+        about:
+        "Компаниялар мен брендтерге арналған сапалы мәтіндер жазамын. SMM, жарнама және блог мақалаларын дайындаймын.",
+
+        skills: [
+            "Copywriting",
+            "SMM",
+            "SEO",
+            "Content Writing"
+        ],
+
+        experience:
+        "4 жыл",
+
+        price:
+        "$15 / сағ",
+
+        portfolio:
+        "https://www.linkedin.com/"
+
+    },
+
+
+    {
+        name: "Арман Қасым",
+
+        photo:
+        "https://randomuser.me/api/portraits/men/45.jpg",
+
+        profession:
+        "Graphic Designer",
+
+        location:
+        "Қарағанды, Қазақстан",
+
+        rating:
+        "⭐ 4.7 / 5.0",
+
+        about:
+        "Брендинг, логотип және әлеуметтік желілерге арналған визуалды материалдар жасаймын.",
+
+        skills: [
+            "Photoshop",
+            "Illustrator",
+            "Figma",
+            "Branding"
+        ],
+
+        experience:
+        "5 жыл",
+
+        price:
+        "$22 / сағ",
+
+        portfolio:
+        "https://www.behance.net/"
+
+    },
+
+
+    {
+        name: "Нұрбек Әли",
+
+        photo:
+        "https://randomuser.me/api/portraits/men/22.jpg",
+
+        profession:
+        "Video Editor",
+
+        location:
+        "Тараз, Қазақстан",
+
+        rating:
+        "⭐ 4.8 / 5.0",
+
+        about:
+        "YouTube, TikTok және Instagram үшін кәсіби видео монтаж жасаймын.",
+
+        skills: [
+            "Premiere Pro",
+            "After Effects",
+            "DaVinci Resolve",
+            "Video Editing"
+        ],
+
+        experience:
+        "2 жыл",
+
+        price:
+        "$18 / сағ",
+
+        portfolio:
+        "https://www.youtube.com/"
+
+    }
+
+];
+
+
+
+/* =====================================================
+                ФРИЛАНСЕР КАРТОЧКАЛАРЫН ЖАСАУ
+===================================================== */
+
+function loadFreelancers() {
+
+
+    const container =
+        document.getElementById(
+            "freelancerList"
+        );
+
+
+    container.innerHTML = "";
+
+
+    freelancers.forEach(
+        function(freelancer, index) {
+
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "card freelancer-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${freelancer.photo}"
+                    alt="${freelancer.name}"
+                >
+
+                <h3>
+                    ${freelancer.name}
+                </h3>
+
+                <p>
+                    👨‍💻 ${freelancer.profession}
+                </p>
+
+                <p>
+                    📍 ${freelancer.location}
+                </p>
+
+                <p>
+                    ${freelancer.rating}
+                </p>
+
+                <div class="price">
+                    ${freelancer.price}
+                </div>
+
+                <button
+                    class="btn primary"
+                    onclick="showFreelancer(${index})"
+                >
+                    Профильді көру
+                </button>
+
+            `;
+
+
+            container.appendChild(card);
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+                        БЕТ АУЫСТЫРУ
+===================================================== */
+
+function showPage(pageId) {
+
+
+    const pages =
+        document.querySelectorAll(".page");
+
+
+    pages.forEach(
+        function(page) {
+
+            page.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    const page =
+        document.getElementById(pageId);
+
+
+    if (page) {
+
+        page.classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* =====================================================
+                    ПРОФИЛЬ АШУ
+===================================================== */
+
+function showFreelancer(index) {
+
+
+    const freelancer =
+        freelancers[index];
+
+
+    if (!freelancer) {
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "profilePhoto"
+    ).src =
+        freelancer.photo;
+
+
+    document.getElementById(
+        "profileName"
+    ).textContent =
+        freelancer.name;
+
+
+    document.getElementById(
+        "profileProfession"
+    ).textContent =
+        "👨‍💻 " +
+        freelancer.profession;
+
+
+    document.getElementById(
+        "profileLocation"
+    ).textContent =
+        "📍 " +
+        freelancer.location;
+
+
+    document.getElementById(
+        "profileRating"
+    ).textContent =
+        freelancer.rating;
+
+
+    document.getElementById(
+        "profileAbout"
+    ).textContent =
+        freelancer.about;
+
+
+    document.getElementById(
+        "profileExperience"
+    ).textContent =
+        freelancer.experience;
+
+
+    document.getElementById(
+        "profilePrice"
+    ).textContent =
+        freelancer.price;
+
+
+
+    /* =====================
+          ДАУЫЛАР
+    ===================== */
+
+    const skills =
+        document.getElementById(
+            "profileSkills"
+        );
+
+
+    skills.innerHTML = "";
+
+
+    freelancer.skills.forEach(
+        function(skill) {
+
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+
+            span.className =
+                "skill";
+
+
+            span.textContent =
+                skill;
+
+
+            skills.appendChild(span);
+
+        }
+    );
+
+
+
+    /* =====================
+          ПОРТФОЛИО
+    ===================== */
+
+    document.getElementById(
+        "profilePortfolio"
+    ).href =
+        freelancer.portfolio;
+
+
+
+    /* =====================
+          ПРОФИЛЬДІ АШУ
+    ===================== */
+
+    showPage("profile");
+
+}
+
+
+
+/* =====================================================
+                     ІЗДЕУ
+===================================================== */
+
+function searchFreelancer() {
+
+
+    const search =
+        document.getElementById(
+            "freelancerSearch"
+        ).value.toLowerCase();
+
+
+    const cards =
+        document.querySelectorAll(
+            ".freelancer-card"
+        );
+
+
+    cards.forEach(
+        function(card) {
+
+
+            const text =
+                card.innerText.toLowerCase();
+
+
+            if (
+                text.includes(search)
+            ) {
+
+                card.style.display =
+                    "block";
+
+            } else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+                    ӨТІНІМ АШУ
+===================================================== */
+
+function openApplication(
+    projectName,
+    projectPrice
+) {
+
+
+    document.getElementById(
+        "selectedProject"
+    ).textContent =
+        projectName;
+
+
+    document.getElementById(
+        "selectedPrice"
+    ).textContent =
+        projectPrice;
+
+
+    showPage(
+        "application"
+    );
+
+}
+
+
+
+/* =====================================================
+                 ӨТІНІМ ЖІБЕРУ
+===================================================== */
+
+function submitApplication(event) {
+
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById(
+            "fullName"
+        ).value;
+
+
+    const email =
+        document.getElementById(
+            "email"
+        ).value;
+
+
+    const phone =
+        document.getElementById(
+            "phone"
+        ).value;
+
+
+    const profession =
+        document.getElementById(
+            "profession"
+        ).value;
+
+
+    const experience =
+        document.getElementById(
+            "experience"
+        ).value;
+
+
+    const portfolio =
+        document.getElementById(
+            "portfolio"
+        ).value;
+
+
+    const offerPrice =
+        document.getElementById(
+            "offerPrice"
+        ).value;
+
+
+    const about =
+        document.getElementById(
+            "about"
+        ).value;
+
+
+    const project =
+        document.getElementById(
+            "selectedProject"
+        ).textContent;
+
+
+
+    /* =====================================================
+                       НӘТИЖЕ
+    ===================================================== */
+
+    document.getElementById(
+        "applicationResult"
+    ).innerHTML = `
+
+        <b>📋 Жоба:</b>
+        ${project}
+
+        <br>
+
+        <b>👤 Аты-жөні:</b>
+        ${name}
+
+        <br>
+
+        <b>📧 Email:</b>
+        ${email}
+
+        <br>
+
+        <b>📱 Телефон:</b>
+        ${phone}
+
+        <br>
+
+        <b>💼 Мамандығы:</b>
+        ${profession}
+
+        <br>
+
+        <b>⏳ Тәжірибесі:</b>
+        ${experience}
+
+        <br>
+
+        <b>💰 Ұсыныс бағасы:</b>
+        ${offerPrice} ₸
+
+        <br>
+
+        <b>🔗 Портфолио:</b>
+
+        ${
+            portfolio
+            ?
+            `<a
+                href="${portfolio}"
+                target="_blank"
+            >
+                Портфолионы ашу
+            </a>`
+            :
+            "Көрсетілмеген"
+        }
+
+        <br>
+
+        <b>📝 Өзі туралы:</b>
+        ${about}
+
+    `;
+
+
+
+    showPage(
+        "success"
+    );
+
+
+    document.getElementById(
+        "applicationForm"
+    ).reset();
+
+}
+
+
+
+/* =====================================================
+                     БАСТАПҚЫ ЖҮКТЕУ
+===================================================== */
+
+loadFreelancers();
+
+</script>
+
+
+</body>
+
+</html>
